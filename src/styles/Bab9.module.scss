@@ -1,0 +1,80 @@
+/* Bab9.module.scss */
+@import 'Bab1.module.scss'; // Mewarisi semua gaya dasar dari Bab 1
+
+// Gaya khusus untuk contoh di Bab 9
+.zustandExample {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+
+    p {
+        text-align: center;
+        font-style: italic;
+        color: var(--text-secondary-color);
+    }
+}
+
+.cartDisplay {
+    font-size: 1.25rem;
+    font-weight: 600;
+    padding: 1rem 1.5rem;
+    background-color: var(--section-bg-color);
+    border-radius: 0.75rem;
+    border: 1px solid var(--border-color);
+
+    span {
+        display: inline-block;
+        min-width: 30px;
+        text-align: center;
+        background-image: $gradient;
+        color: white;
+        padding: 0.2rem 0.6rem;
+        border-radius: 9999px;
+    }
+}
+
+.cartControls {
+    display: flex;
+    gap: 1rem;
+
+    button {
+        padding: 0.6rem 1.2rem;
+        border-radius: 0.5rem;
+        border: 1px solid var(--border-color);
+        background-color: var(--card-bg-color);
+        color: var(--text-color);
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover {
+            border-color: #818cf8;
+            background-color: var(--section-bg-color);
+            transform: scale(1.05);
+        }
+
+        &.resetButton:hover {
+            border-color: #ef4444;
+            color: #ef4444;
+        }
+    }
+}
+
+.step {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  &:first-of-type {
+    margin-top: 1rem;
+    padding-top: 0;
+    border-top: none;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 0.75rem;
+  }
+}

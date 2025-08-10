@@ -1,0 +1,338 @@
+/* HomePage.module.scss - Desain Premium & Animasi Canggih */
+
+/* === Variable & Keyframes === */
+$gradient: linear-gradient(90deg, #818cf8, #c084fc, #f472b6);
+
+@keyframes text-shimmer {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+@keyframes aurora {
+  0% { transform: translate(0%, 0%) rotate(0deg); }
+  25% { transform: translate(10%, -20%) rotate(20deg); }
+  50% { transform: translate(-10%, 20%) rotate(-20deg); }
+  75% { transform: translate(5%, 5%) rotate(10deg); }
+  100% { transform: translate(0%, 0%) rotate(0deg); }
+}
+
+/* === Struktur Dasar === */
+.pageWrapper {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.section {
+  padding: 6rem 1.5rem;
+  position: relative;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* === Latar Belakang Aurora === */
+.auroraContainer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  
+  .aurora {
+    position: absolute;
+    filter: blur(5rem);
+    opacity: 0.15;
+    border-radius: 9999px;
+    .dark & {
+      opacity: 0.2;
+    }
+  }
+  
+  .aurora1 {
+    top: -25%;
+    left: -25%;
+    width: 800px;
+    height: 800px;
+    background: var(--gradient-start);
+    animation: aurora 30s infinite ease-in-out;
+  }
+  
+  .aurora2 {
+    bottom: -25%;
+    right: -25%;
+    width: 800px;
+    height: 800px;
+    background: var(--gradient-end);
+    animation: aurora 35s infinite ease-in-out reverse;
+  }
+}
+
+/* === Hero Section === */
+.hero {
+  text-align: center;
+  padding: 8rem 1.5rem;
+  
+  .headline {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    line-height: 1.1;
+    color: var(--text-color);
+    @media (min-width: 768px) {
+      font-size: 4.5rem;
+    }
+  }
+
+  .gradientText {
+    background-image: $gradient;
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: text-shimmer 5s linear infinite;
+  }
+
+  .subheadline {
+    margin-top: 1.5rem;
+    max-width: 45rem;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.25rem;
+    color: var(--text-secondary-color);
+  }
+
+  .ctaButton {
+    margin-top: 2.5rem;
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: white;
+    border-radius: 9999px;
+    background-image: $gradient;
+    background-size: 200% 100%;
+    box-shadow: 0 10px 20px -5px rgba(192, 132, 252, 0.4);
+    transition: all 0.4s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      background-position: right center;
+      box-shadow: 0 15px 25px -5px rgba(192, 132, 252, 0.5);
+    }
+  }
+}
+
+/* === Bagian Umum Kartu === */
+.interactiveCard {
+  position: relative;
+  border-radius: 1.5rem;
+  border: 1px solid var(--border-color);
+  background-color: var(--card-bg-color);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 1.5rem;
+    background: radial-gradient(
+      800px circle at var(--mouse-x) var(--mouse-y),
+      rgba(192, 132, 252, 0.15),
+      transparent 40%
+    );
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  
+  &:hover {
+    transform: translateY(-10px) rotateX(5deg) scale(1.02);
+    box-shadow: 0 16px 40px 0 rgba(31, 38, 135, 0.1);
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+/* === Why Choose Us Section === */
+.whySection {
+  text-align: center;
+  background-color: var(--section-bg-color);
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 4rem;
+  }
+}
+
+.benefitCard {
+  @extend .interactiveCard;
+  padding: 2rem;
+  text-align: center;
+  
+  .benefitIcon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    transform: translateZ(20px);
+  }
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    transform: translateZ(30px);
+  }
+  p {
+    color: var(--text-secondary-color);
+    transform: translateZ(10px);
+  }
+}
+
+/* === Featured Section === */
+.featured {
+  background-color: var(--background-color);
+  .featuredGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    align-items: center;
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  .featuredText {
+    h2 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--text-color);
+    }
+    p {
+      margin-top: 1.5rem;
+      font-size: 1.125rem;
+      color: var(--text-secondary-color);
+    }
+  }
+  .codeBlock {
+    position: relative;
+    background-color: #282c34;
+    border-radius: 0.75rem;
+    padding-top: 0.5rem;
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    .windowDots {
+      display: flex;
+      gap: 0.5rem;
+      padding: 0.75rem 1rem;
+    }
+    .dot {
+      height: 0.75rem;
+      width: 0.75rem;
+      border-radius: 9999px;
+    }
+    pre {
+      background-color: #282c34;
+      padding: 1.5rem;
+      border-radius: 0 0 0.5rem 0.5rem;
+      overflow-x: auto;
+      code {
+        font-family: 'Fira Code', 'Courier New', monospace;
+        color: white;
+      }
+    }
+  }
+}
+
+/* === Chapters Section === */
+.chapters {
+  background-color: var(--section-bg-color);
+}
+
+.chapterGroup {
+  margin-bottom: 5rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.groupTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.chapterCard {
+  @extend .interactiveCard;
+  padding: 1.5rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  
+  .cardIconWrapper {
+    font-size: 2.5rem;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    background-image: $gradient;
+    color: white;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: translateZ(40px);
+  }
+  
+  &:hover .cardIconWrapper {
+    transform: translateZ(50px) scale(1.1) rotate(-5deg);
+  }
+
+  h3 {
+    margin-top: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-color);
+    transform: translateZ(30px);
+  }
+
+  p {
+    margin-top: 0.5rem;
+    flex-grow: 1;
+    color: var(--text-secondary-color);
+    transform: translateZ(20px);
+  }
+
+  .cardLink {
+    margin-top: 1.5rem;
+    font-weight: 600;
+    color: #3b82f6;
+    transform: translateZ(10px);
+    .dark & {
+      color: #60a5fa;
+    }
+    span {
+      display: inline-block;
+      transition: transform 0.2s ease;
+    }
+    &:hover span {
+      transform: translateX(5px);
+    }
+  }
+}

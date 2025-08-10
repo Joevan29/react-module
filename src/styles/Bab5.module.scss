@@ -1,0 +1,79 @@
+/* Bab5.module.scss */
+@import 'Bab1.module.scss'; // Mewarisi semua gaya dasar dari Bab 1
+
+// Gaya khusus untuk contoh di Bab 5
+.themeWrapper {
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &.light {
+    background-color: #ffffff;
+    color: #111827;
+  }
+
+  &.dark {
+    background-color: #1f2937;
+    color: #f9fafb;
+  }
+}
+
+.infoText {
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 1.5rem !important;
+  opacity: 0.7;
+}
+
+.toolbar {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px dashed var(--border-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.themeButton {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  .light & {
+    background-color: #1f2937;
+    color: #f9fafb;
+    &:hover {
+      background-color: #374151;
+    }
+  }
+
+  .dark & {
+    background-color: #f9fafb;
+    color: #1f2937;
+    &:hover {
+      background-color: #e5e7eb;
+    }
+  }
+}
+
+.step {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  &:first-of-type {
+    margin-top: 1rem;
+    padding-top: 0;
+    border-top: none;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 0.75rem;
+  }
+}

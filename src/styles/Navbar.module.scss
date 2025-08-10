@@ -1,0 +1,71 @@
+/* === File: src/styles/Navbar.module.scss === */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  border-bottom: 1px solid transparent; /* Awalnya transparan */
+  background-color: var(--navbar-bg-color); /* Menggunakan variabel global */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+
+  /* Efek saat di-scroll */
+  &.scrolled {
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    .dark & {
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background-image: linear-gradient(90deg, #818cf8, #c084fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  @media (min-width: 768px) {
+    gap: 1.5rem;
+  }
+  a {
+    position: relative;
+    color: var(--text-secondary-color);
+    transition: color 0.3s ease;
+    padding: 0.5rem;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background-image: linear-gradient(90deg, #818cf8, #c084fc);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+    &:hover {
+      color: var(--text-color);
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}

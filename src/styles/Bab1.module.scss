@@ -1,0 +1,148 @@
+/* Bab1.module.scss */
+@import 'HomePage.module.scss'; // Mengimpor variabel dan mixin
+
+.pageWrapper {
+  padding: 4rem 1.5rem;
+  background-color: var(--section-bg-color);
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+  }
+  p {
+    font-size: 1.25rem;
+    color: var(--text-secondary-color);
+  }
+}
+
+.contentSection {
+  margin-bottom: 3rem;
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
+  }
+  p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    color: var(--text-secondary-color);
+  }
+}
+
+.highlight {
+  color: #c084fc;
+  font-weight: 500;
+  background-color: rgba(192, 132, 252, 0.1);
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.25rem;
+}
+
+.ruleCard {
+  background-color: var(--card-bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-top: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  h3 {
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+  }
+}
+
+.exampleBox {
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.5rem;
+  h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary-color);
+    margin-bottom: 0.75rem;
+  }
+}
+
+.codeBlock {
+  background-color: #282c34;
+  color: #abb2bf;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.9rem;
+  white-space: pre-wrap;
+}
+
+.renderOutput {
+  background-color: var(--section-bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: var(--text-color);
+  }
+}
+
+.profile {
+  img {
+    width: 100px;
+    height: 100px;
+    border-radius: 9999px;
+    border: 3px solid #818cf8;
+  }
+}
+
+.navigation {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-color);
+  padding-top: 2rem;
+}
+
+.backButton, .nextButton {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.backButton {
+  border: 1px solid var(--border-color);
+  &:hover {
+    background-color: var(--card-bg-color);
+    border-color: #818cf8;
+  }
+}
+
+.nextButton {
+  background-image: $gradient;
+  color: white;
+  &:hover {
+    transform: scale(1.05);
+  }
+}

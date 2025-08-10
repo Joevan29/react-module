@@ -1,0 +1,77 @@
+/* Bab8.module.scss */
+@import 'Bab1.module.scss'; // Mewarisi semua gaya dasar dari Bab 1
+
+// Gaya khusus untuk form di Bab 8
+.formSimulator {
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    padding: 2rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    label {
+        font-weight: 500;
+        color: var(--text-color);
+    }
+
+    input {
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+        border: 1px solid var(--border-color);
+        background-color: var(--section-bg-color);
+        color: var(--text-color);
+        font-size: 1rem;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+        &:focus {
+            outline: none;
+            border-color: #818cf8;
+            box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.2);
+        }
+    }
+}
+
+.submitButton {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-image: $gradient;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    align-self: flex-start;
+
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(192, 132, 252, 0.3);
+    }
+}
+
+.submittedData {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--section-bg-color);
+    border-radius: 0.5rem;
+
+    h4 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        color: var(--text-color);
+    }
+    p {
+        margin-bottom: 0.5rem !important;
+        word-break: break-all;
+    }
+}
