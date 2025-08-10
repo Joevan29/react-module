@@ -34,17 +34,17 @@ export default function Footer() {
         <div className={styles.footerColumn}>
           <h4>Intermediate</h4>
           <ul>
-            <li><Link href="#">Bab 7: React Router</Link></li>
-            <li><Link href="#">Bab 8: Form</Link></li>
-            <li><Link href="#">Bab 9: State Management</Link></li>
+            <li><Link href="/bab-7-react-router">Bab 7: React Router</Link></li>
+            <li><Link href="/bab-8-bekerja-dengan-form">Bab 8: Form</Link></li>
+            <li><Link href="/bab-9-state-management">Bab 9: State Management</Link></li>
           </ul>
         </div>
         <div className={styles.footerColumn}>
           <h4>Advanced</h4>
           <ul>
-            <li><Link href="#">Bab 10: Optimasi</Link></li>
-            <li><Link href="#">Bab 11: Testing</Link></li>
-            <li><Link href="#">Bab 12: TypeScript</Link></li>
+            <li><Link href="/bab-10-optimasi-performa">Bab 10: Optimasi</Link></li>
+            <li><Link href="/bab-11-testing-komponen">Bab 11: Testing</Link></li>
+            <li><Link href="/bab-12-typescript-di-react">Bab 12: TypeScript</Link></li>
           </ul>
         </div>
         <div className={styles.footerColumn}>
